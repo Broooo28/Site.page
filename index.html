@@ -6,24 +6,22 @@
   <title>Roblox Gifting Group - Pixel Retro</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    /* 1. FONT CHỮ PIXELADE (Minecraft Style) */
+    /* Font pixel */
     @font-face {
         font-family: 'Pixelade';
         src: url('https://raw.githubusercontent.com/google/fonts/master/ofl/pressstart2p/PressStart2P-Regular.ttf') format('truetype');
-        /* Trong dự án thực tế, bạn nên host font này, nhưng cho ví dụ, ta dùng fallback */
     }
 
-    /* 2. BIẾN CSS VÀ MÀU SẮC */
     :root {
       --bg: #000;
-      --text: #ffffff; 
-      --accent-color: #ff00ff; /* Hồng neon */
-      --secondary-accent: #00ffff; /* Cyan neon */
-      --hover-bg: rgba(26, 0, 26, 0.7); 
+      --text: #ffffff;
+      --accent-color: #ff00ff;
+      --secondary-accent: #00ffff;
+      --hover-bg: rgba(26, 0, 26, 0.7);
       --border-thickness: 3px;
     }
 
-    /* 3. HIỆU ỨNG RAINBOW BORDER (VIỀN CẦU VỒNG) */
+    /* Viền cầu vồng */
     @keyframes rainbow-border {
       0% { border-color: #ff0000; }
       16% { border-color: #ff7f00; }
@@ -34,26 +32,24 @@
       100% { border-color: #ff0000; }
     }
 
-    /* 4. HIỆU ỨNG LẤP LÁNH CHO TEXT */
+    /* Lấp lánh */
     @keyframes sparkle-glow {
         0%, 100% { text-shadow: 0 0 5px #fff, 0 0 10px var(--secondary-accent); }
         50% { text-shadow: 0 0 15px #fff, 0 0 25px var(--accent-color); }
     }
 
-    /* 5. HIỆU ỨNG MƯA RƠI NHẸ */
+    /* Hiệu ứng mưa */
     @keyframes rain {
         0% { background-position: 0% 0%, 0% 0%; }
         100% { background-position: 100% 100%, 50% 50%; }
     }
 
-    /* ĐẶT LẠI MẶC ĐỊNH */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
-    /* BODY VÀ NỀN NGÂN HÀ 4K */
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -63,59 +59,47 @@
       flex-direction: column;
       align-items: center;
       padding: 1rem;
-      /* Ảnh nền ngân hà 4K và hiệu ứng parallax */
-      background-image: url('https://i.imgur.com/kH10D70.jpeg'); 
-      background-attachment: fixed; /* Parallax effect */
-      background-size: cover;
-      background-position: center;
-      overflow-x: hidden; /* Ngăn chặn cuộn ngang */
+      overflow-x: hidden;
     }
 
-    /* ÁP DỤNG HIỆU ỨNG MƯA RƠI LÊN BODY */
+    /* Mưa rơi nhẹ */
     body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        /* Hình ảnh "mưa" được tạo qua gradient, opacity thấp */
-        background-image: 
-            repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05), transparent 1px, transparent 100px),
-            repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.05), transparent 1px, transparent 100px);
-        background-size: 200% 200%;
-        animation: rain 15s linear infinite;
-        pointer-events: none; /* Cho phép tương tác với các phần tử bên dưới */
-        z-index: 1;
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05), transparent 1px, transparent 100px),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.05), transparent 1px, transparent 100px);
+      background-size: 200% 200%;
+      animation: rain 15s linear infinite;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    /* CONTAINER CHÍNH CHO HIỆU ỨNG ĐẸP HƠN */
     .main-container {
-        z-index: 10;
-        width: 100%;
-        max-width: 500px;
-        background: rgba(0, 0, 0, 0.85); /* Tạo lớp phủ tối cho dễ đọc */
-        padding: 1rem;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+      z-index: 10;
+      width: 100%;
+      max-width: 500px;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
     }
 
-
-    /* HEADER */
     header {
       margin-top: 2rem;
       text-align: center;
     }
     header h1 {
-      font-size: clamp(0.9rem, 5vw, 1.5rem); 
+      font-size: clamp(0.9rem, 5vw, 1.5rem);
       margin-bottom: 1.5rem;
-      color: var(--accent-color); 
-      /* ÁP DỤNG HIỆU ỨNG LẤP LÁNH */
+      color: var(--text);
       animation: sparkle-glow 1.5s infinite alternate;
-      z-index: 11;
     }
 
-    /* NAVIGATION */
     nav {
       margin-bottom: 3rem;
     }
@@ -132,15 +116,13 @@
       color: #fff;
       border-color: var(--accent-color);
     }
-    
-    /* DỊCH VỤ */
+
     .services {
       width: 100%;
       max-width: 450px;
       padding: 0 1rem;
     }
 
-    /* ITEM DỊCH VỤ */
     .service-item {
       background: var(--hover-bg);
       padding: 1rem;
@@ -151,17 +133,94 @@
       display: flex;
       align-items: center;
       position: relative;
-      /* Viền cầu vồng tĩnh */
       border: var(--border-thickness) solid;
       animation: rainbow-border 5s linear infinite;
+      overflow: hidden;
+      word-wrap: break-word;
     }
     .service-item:hover {
-      background: rgba(255, 0, 255, 0.9); /* Thay đổi màu nền */
-      color: var(--bg); /* Thay đổi màu chữ */
-      transform: scale(1.05); 
+      background: rgba(255, 0, 255, 0.9);
+      color: var(--bg);
+      transform: scale(1.05);
       box-shadow: 0 0 15px var(--accent-color);
     }
     .service-item span {
+      font-size: 0.9rem;
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
+    .service-item-text {
+      font-size: clamp(0.6rem, 3vw, 0.8rem);
+      word-wrap: break-word;
+      color: #fff;
+      animation: sparkle-glow 2s infinite alternate;
+    }
+
+    footer {
+      margin-top: auto;
+      margin-bottom: 1rem;
+      font-size: 0.5rem;
+      opacity: 0.7;
+      text-align: center;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <header>
+      <h1>#1 ROBLOX GIFTING GROUP</h1>
+      <nav>
+        <a href="#" data-link="services">SERVICES</a>
+        <a href="#" data-link="contact">CONTACT</a>
+      </nav>
+    </header>
+
+    <div class="services" role="list">
+      <div class="service-item" role="listitem" data-url="https://inlnk.co/GGmBb">
+        <span>⭐</span> 
+        <span class="service-item-text">JOIN OUR ROBLOX GROUP</span>
+      </div>
+
+      <div class="service-item" role="listitem" data-url="https://inlnk.co/CGcmZ">
+        <span>💰</span> 
+        <span class="service-item-text">DAILY ROBUX GIVEAWAYS</span>
+      </div>
+
+      <div class="service-item" role="listitem" data-url="https://inlnk.co/Hnwgb">
+        <span>🤖</span> 
+        <span class="service-item-text">RBLX ACCOUNT INFO & SUPPORT</span>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    © 2025 MYSTIC SERVICES | ALL RIGHTS RESERVED
+  </footer>
+
+  <script>
+    function openTargetUrl(event) {
+      event.preventDefault(); 
+      let targetUrl = "https://www.roblox.com/groups/unset";
+
+      if (event.currentTarget.classList.contains('service-item')) {
+        targetUrl = event.currentTarget.getAttribute('data-url');
+      } 
+      else if (event.currentTarget.tagName === 'A') {
+        targetUrl = "https://inlnk.co/GGmBb"; 
+      }
+
+      if (targetUrl) {
+        window.open(targetUrl, "_blank");
+      }
+    }
+
+    document.querySelectorAll('.service-item, nav a').forEach(el => {
+      el.addEventListener('click', openTargetUrl);
+    });
+  </script>
+</body>
+</html>
       font-size: 0.9rem;
       margin-right: 0.75rem;
       flex-shrink: 0;
